@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+
+            background:#f1f5f9;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+
+        }
+
+        .login-box{
+
+            width:420px;
+            background:#fff;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+        }
+
+        .login-box h2{
+
+            text-align:center;
+            margin-bottom:10px;
+            color:#0d6efd;
+
+        }
+
+        .login-box p{
+
+            text-align:center;
+            color:gray;
+            margin-bottom:25px;
+
+        }
+
+        label{
+
+            font-weight:bold;
+
+        }
+
+        .btn-login{
+
+            width:100%;
+            margin-top:15px;
+
+        }
+
+        .footer{
+
+            text-align:center;
+            margin-top:20px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h2>Task Management System</h2>
+
+    <p>User Login</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="mb-3">
+
+            <label>Username</label>
+
+            <input
+            type="text"
+            name="username"
+            class="form-control"
+            placeholder="Enter Username"
+            required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Password</label>
+
+            <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter Password"
+            required>
+
+        </div>
+
+        <button class="btn btn-primary btn-login">
+
+            Login
+
+        </button>
+
+    </form>
+
+    <div class="footer">
+
+        <small>© 2026 Task Management System</small>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
